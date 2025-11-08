@@ -1,0 +1,7 @@
+use angular-supported built-in i18n (thankfully):
+ng add @angular/localize
+create locale directory
+
+route handling:
+--routing flag
+
