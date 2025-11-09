@@ -1,5 +1,5 @@
 use angular-supported built-in i18n (thankfully):
-ng add @angular/localize
+ng add @angular/localize: DONE
 create locale directory
 
 route handling:
