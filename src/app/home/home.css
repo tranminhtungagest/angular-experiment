@@ -1,5 +1,7 @@
-* {
+@import "tailwindcss";
+
+/* * {
   font-size: 30px;
   color: blue;
   font-style: italic;
-}
+} */
