@@ -3,15 +3,15 @@ import { ControlDataService } from './data/control-data.service';
 import { RouterOutlet } from '@angular/router';
 import { FormsModule } from '@angular/forms'; // ✅ import this
 import { CommonModule } from '@angular/common'; // ✅ import this
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.html',
   styleUrls: ['./app.css'],
-  imports: [FormsModule, CommonModule],
+  imports: [FormsModule, CommonModule, RouterOutlet],
   standalone: true,
 })
-
 export class App implements OnInit {
   frameworks: string[] = [];
   components: string[] = [];
@@ -22,7 +22,7 @@ export class App implements OnInit {
   selectedComponent = '';
   selectedControl = '';
 
-  constructor(private controlData: ControlDataService) {}
+  constructor(private controlData: ControlDataService, private router: Router) {}
 
   ngOnInit() {
     this.frameworks = this.controlData.getFrameworks();
@@ -46,5 +46,13 @@ export class App implements OnInit {
   onControlChange(value: string) {
     this.selectedControl = value;
     this.samples = [`${value}_Sample`];
+
+    this.router.navigate([
+      '/scenario',
+      this.selectedFramework,
+      this.selectedComponent,
+      this.selectedControl,
+      this.samples[0],
+    ]);
   }
 }

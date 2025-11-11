@@ -1,0 +1,18 @@
+<div class="text-center">
+  <h2>Scenario Page</h2>
+  <p>Framework: <strong>{{ framework }}</strong></p>
+  <p>Component: <strong>{{ component }}</strong></p>
+  <p>Control: <strong>{{ control }}</strong></p>
+  <p>Sample: <strong>{{ sample }}</strong></p>
+
+  <!-- Optional: render a preview element -->
+  <div style="margin-top: 1rem; border: 1px solid #ccc; padding: 1rem;">
+    <p>Preview:</p>
+    <ng-container [ngSwitch]="control">
+      <button *ngSwitchCase="'Button'">Button</button>
+      <input *ngSwitchCase="'InputText'" placeholder="Input Text" />
+      <img *ngSwitchCase="'Image'" src="https://via.placeholder.com/150" />
+      <p *ngSwitchDefault>{{ control }} preview not available</p>
+    </ng-container>
+  </div>
+</div>
