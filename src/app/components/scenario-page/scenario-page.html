@@ -1,17 +1,37 @@
 <div class="text-center">
   <h2>Scenario Page</h2>
-  <p>Framework: <strong>{{ framework }}</strong></p>
-  <p>Component: <strong>{{ component }}</strong></p>
-  <p>Control: <strong>{{ control }}</strong></p>
-  <p>Sample: <strong>{{ sample }}</strong></p>
+  <p>
+    Framework: <strong>{{ framework }}</strong>
+  </p>
+  <p>
+    Component: <strong>{{ component }}</strong>
+  </p>
+  <p>
+    Control: <strong>{{ control }}</strong>
+  </p>
+  <p>
+    Sample: <strong>{{ sample }}</strong>
+  </p>
+
+  <a href="https://aut-sample.vercel.app/" id="backHomeBtn">Back to Home</a>
 
   <!-- Optional: render a preview element -->
-  <div style="margin-top: 1rem; border: 1px solid #ccc; padding: 1rem;">
+  <div style="margin-top: 1rem; border: 1px solid #ccc; padding: 1rem">
     <p>Preview:</p>
     <ng-container [ngSwitch]="control">
       <button *ngSwitchCase="'Button'">Button</button>
       <input *ngSwitchCase="'InputText'" placeholder="Input Text" />
-      <img *ngSwitchCase="'Image'" src="https://via.placeholder.com/150" />
+      <img
+        *ngSwitchCase="'Image'"
+        alt="LeBron_James"
+        src="https://upload.wikimedia.org/wikipedia/commons/7/7a/LeBron_James_%2851959977144%29_%28cropped2%29.jpg"
+      />
+      <canvas
+        *ngSwitchCase="'Canvas'"
+        width="300"
+        height="150"
+        style="border: 1px solid red"
+      ></canvas>
       <p *ngSwitchDefault>{{ control }} preview not available</p>
     </ng-container>
   </div>
