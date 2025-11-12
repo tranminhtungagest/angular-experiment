@@ -12,27 +12,185 @@
   <p>
     Sample: <strong>{{ sample }}</strong>
   </p>
-
-  <a href="https://aut-sample.vercel.app/" id="backHomeBtn">Back to Home</a>
+  <!-- / for local development -->
+  <!-- back to https://aut-sample.vercel.app/ when deployed -->
+  <a href="/" id="backHomeBtn">Go to Main Page</a>
 
   <!-- Optional: render a preview element -->
-  <div style="margin-top: 1rem; border: 1px solid #ccc; padding: 1rem">
-    <p>Preview:</p>
+  <div id="demoArea">
+    <h1>Preview:</h1>
     <ng-container [ngSwitch]="control">
-      <button *ngSwitchCase="'Button'">Button</button>
-      <input *ngSwitchCase="'InputText'" placeholder="Input Text" />
+      <!-- button -->
+      <button
+        *ngSwitchCase="'Button'"
+        id="Button"
+        onclick="alert('You have clicked my sensitive spot, senpai...')"
+      >
+        Click me!
+      </button>
+
+      <!-- text-type input -->
+      <input
+        *ngSwitchCase="'InputText'"
+        id="InputText"
+        name="InputText"
+        type="text"
+        placeholder="InputText"
+      />
+
+      <input
+        *ngSwitchCase="'InputText'"
+        id="InputTextDisabled"
+        name="InputTextDisabled"
+        type="text"
+        placeholder="InputTextDisabled"
+        disabled
+      />
+
+      <!-- button-type input -->
+      <input
+        *ngSwitchCase="'InputButton'"
+        id="InputButton"
+        name="InputButton"
+        type="button"
+        value="InputButton"
+        onclick="alert('You have clicked my sensitive spot, senpai...')"
+      />
+
+      <!-- checkbox-type input -->
+      <input
+        *ngSwitchCase="'InputCheckBox'"
+        type="checkbox"
+        name="InputCheckBox"
+        id="InputCheckBox"
+      />
+      <label *ngSwitchCase="'InputCheckBox'" for="InputCheckBox">&nbsp;I am a checkbox input</label>
+
+      <!-- radio-type input -->
+      <input
+        *ngSwitchCase="'InputRadio'"
+        type="radio"
+        name="InputRadio"
+        id="InputRadio"
+        value="InputRadio"
+      />
+      <label *ngSwitchCase="'InputRadio'" for="InputRadio">&nbsp;I am a radio input</label>
+
+      <!-- email-type input -->
+      <input *ngSwitchCase="'InputEmail'" type="email" name="InputEmail" id="InputEmail" />
+      <label *ngSwitchCase="'InputEmail'" for="InputEmail">&nbsp;I am an email input</label>
+
+      <!-- password-type input -->
+      <input
+        *ngSwitchCase="'InputPassword'"
+        type="password"
+        name="InputPassword"
+        id="InputPassword"
+      />
+      <label *ngSwitchCase="'InputPassword'" for="InputPassword">&nbsp;I am a password input</label>
+
+      <!-- search-type input -->
+      <input *ngSwitchCase="'InputSearch'" type="search" name="InputSearch" id="InputSearch" />
+      <label *ngSwitchCase="'InputSearch'" for="InputSearch">&nbsp;I am a search input</label>
+
+      <!-- url-type input -->
+      <input *ngSwitchCase="'InputURL'" type="url" name="InputURL" id="InputURL" />
+      <label *ngSwitchCase="'InputURL'" for="InputURL">&nbsp;I am an URL input</label>
+
+      <!-- submit-type input -->
+      <input *ngSwitchCase="'InputSubmit'" type="submit" value="Submit" />
+      <label *ngSwitchCase="'InputSubmit'" for="InputSubmit">&nbsp;I am an submit input</label>
+
+      <!-- range-type input -->
+      <input *ngSwitchCase="'InputRange'" type="range" min="0" max="100" step="1" value="50" />
+      <label *ngSwitchCase="'InputRange'" for="InputRange"
+        >&nbsp;I am a range input default at 50</label
+      >
+
+      <!-- date-type input -->
+      <input *ngSwitchCase="'InputDate'" type="date" />
+      <label *ngSwitchCase="'InputDate'" for="InputDate">&nbsp;I am a date input</label>
+
+      <!-- datetime-type input -->
+      <input
+        *ngSwitchCase="'InputDatetime'"
+        type="datetime"
+        name="InputDatetime"
+        id="InputDatetime"
+      />
+      <label *ngSwitchCase="'InputDatetime'" for="InputDatetime">&nbsp;I am a datetime input</label>
+
+      <!-- datetime-local input -->
+      <input
+        *ngSwitchCase="'InputDatetimeLocal'"
+        type="datetime-local"
+        name="InputDatetimeLocal"
+        id="InputDatetimeLocal"
+      />
+      <label *ngSwitchCase="'InputDatetimeLocal'" for="InputDatetimeLocal"
+        >&nbsp;I am a datetime-local input</label
+      >
+
+      <!-- textarea -->
+      <textarea
+        *ngSwitchCase="'TextArea'"
+        name="TextArea"
+        id="TextArea"
+        rows="10"
+        cols="100"
+        placeholder="This is a text area with 10 rows and 100 columns."
+      ></textarea>
+
+      <!-- div -->
+      <div *ngSwitchCase="'Div'" id="Div" name="Div">I am a div</div>
+
+      <!-- image -->
       <img
         *ngSwitchCase="'Image'"
         alt="LeBron_James"
         src="https://upload.wikimedia.org/wikipedia/commons/7/7a/LeBron_James_%2851959977144%29_%28cropped2%29.jpg"
       />
-      <canvas
-        *ngSwitchCase="'Canvas'"
-        width="300"
-        height="150"
-        style="border: 1px solid red"
-      ></canvas>
-      <p *ngSwitchDefault>{{ control }} preview not available</p>
+
+      <!-- select + option -->
+      <select *ngSwitchCase="'Select'" name="Select" id="Select">
+        <option *ngSwitchCase="'Select'" value="Volvo">Volvo</option>
+        <option *ngSwitchCase="'Select'" value="Saab">Saab</option>
+        <option *ngSwitchCase="'Select'" value="Opel">Opel</option>
+        <option *ngSwitchCase="'Select'" value="Audi">Audi</option>
+      </select>
+
+      <!-- canvas -->
+      <canvas *ngSwitchCase="'Canvas'"> Sorry, your browser does not support canvas. </canvas>
+
+      <!-- span -->
+      <span *ngSwitchCase="'Span'" id="Span" name="Span"> I am a span </span>
+
+      <!-- label -->
+      <label *ngSwitchCase="'Label'" id="Label" name="Label" for="">This is a label</label>
+
+      <!-- h1 -->
+      <h1 *ngSwitchCase="'H1'">I AM A H1 TAG</h1>
+
+      <!-- h2 -->
+      <h2 *ngSwitchCase="'H2'">I AM A H2 TAG</h2>
+
+      <!-- h3 -->
+      <h3 *ngSwitchCase="'H3'">I AM A H3 TAG</h3>
+
+      <!-- h4 -->
+      <h4 *ngSwitchCase="'H4'">I AM A H4 TAG</h4>
+
+      <!-- h5 -->
+      <h5 *ngSwitchCase="'H5'">I AM A H5 TAG</h5>
+
+      <!-- h6 -->
+      <h6 *ngSwitchCase="'H6'">I AM A H6 TAG</h6>
+
+      <!-- p -->
+      <p *ngSwitchCase="'P'">I AM A P TAG</p>
+
+      <!-- default for the rest or unavailable -->
+      <p *ngSwitchDefault>{{ control }} Preview is unavailable.</p>
     </ng-container>
   </div>
 </div>

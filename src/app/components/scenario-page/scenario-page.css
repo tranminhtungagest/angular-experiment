@@ -10,3 +10,39 @@
 #backHomeBtn:hover {
   background-color: #0056b3;
 }
+
+#demoArea {
+  margin-top: 1rem;
+  border: 1px solid #ccc;
+  padding: 1rem;
+  border: 1px dotted orangered;
+}
+
+#Div {
+  width: 500px;
+  height: 500px;
+  background-color: aquamarine;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+canvas {
+  width: 300px;
+  height: 150px;
+  border: 1px solid red;
+}
+
+#Span {
+  color: red;
+  background-color: yellowgreen;
+  font-size: 50px;
+}
+
+#Label {
+  color: blue;
+  background-color: yellowgreen;
+  font-size: 30px;
+}
