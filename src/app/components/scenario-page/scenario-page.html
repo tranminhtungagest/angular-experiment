@@ -1,32 +1,28 @@
-<div class="text-center">
-  <h2>Scenario Page</h2>
+<div>
+  <h2>{{ 'SCENARIO_PAGE' | translate }}</h2>
   <p>
-    Framework: <strong>{{ framework }}</strong>
+    {{ 'FRAMEWORK' | translate }}: <strong>{{ framework }}</strong>
   </p>
   <p>
-    Component: <strong>{{ component }}</strong>
+    {{ 'COMPONENT' | translate }}: <strong>{{ component }}</strong>
   </p>
   <p>
-    Control: <strong>{{ control }}</strong>
+    {{ 'CONTROL' | translate }}: <strong>{{ control }}</strong>
   </p>
   <p>
-    Sample: <strong>{{ sample }}</strong>
+    {{ 'SAMPLE' | translate }}: <strong>{{ sample }}</strong>
   </p>
   <!-- / for local development -->
   <!-- back to https://aut-sample.vercel.app/ when deployed -->
-  <a href="https://aut-sample.vercel.app/" id="backHomeBtn">Go to Main Page</a>
+  <a href="https://aut-sample.vercel.app/" id="backHomeBtn">{{ 'GO_TO_MAIN_PAGE' | translate }}</a>
 
   <!-- Optional: render a preview element -->
   <div id="demoArea">
-    <h1>Preview:</h1>
+    <h1>{{ 'PREVIEW' | translate }}:</h1>
     <ng-container [ngSwitch]="control">
       <!-- button -->
-      <button
-        *ngSwitchCase="'Button'"
-        id="Button"
-        onclick="alert('You have clicked my sensitive spot, senpai...')"
-      >
-        Click me!
+      <button *ngSwitchCase="'Button'" id="Button" (click)="onButtonClick()">
+        {{ 'CLICK_ME' | translate }}
       </button>
 
       <!-- text-type input -->
@@ -53,8 +49,8 @@
         id="InputButton"
         name="InputButton"
         type="button"
-        value="InputButton"
-        onclick="alert('You have clicked my sensitive spot, senpai...')"
+        value="{{ 'INPUT_BUTTON' | translate }}"
+        (click)="onButtonClick()"
       />
 
       <!-- checkbox-type input -->
@@ -190,7 +186,7 @@
       <p *ngSwitchCase="'P'">I AM A P TAG</p>
 
       <!-- default for the rest or unavailable -->
-      <p *ngSwitchDefault>{{ control }} Preview is unavailable.</p>
+      <p *ngSwitchDefault>{{ control }} {{ 'PREVIEW_IS_UNAVAILABLE.' | translate }}</p>
     </ng-container>
   </div>
 </div>

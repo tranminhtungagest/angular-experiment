@@ -1,0 +1,15 @@
+{
+  "FRAMEWORK": "Framework",
+  "COMPONENT": "Component",
+  "CONTROL": "Control",
+  "SAMPLE": "Sample",
+  "SELECTED": "Selected",
+  "TOGGLE_BTN": "English",
+  "SCENARIO_PAGE":"Scenario Page",
+  "GO_TO_MAIN_PAGE": "Go to Main Page",
+  "PREVIEW":"Preview",
+  "PREVIEW_IS_UNAVAILABLE.":"Preview is unavailable.",
+  "CLICK_ME":"Click me!",
+  "YOU_HAVE_CLICKED_ME_SENPAI":"You have clicked my sensitive spot, senpai...",
+  "INPUT_BUTTON":"InputButton"
+}

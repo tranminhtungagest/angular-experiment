@@ -1,7 +1,7 @@
 <!-- universal language toggle -->
 <div class="text-right m-2">
   <button (click)="toggleLanguage()">
-    {{ languageService.currentLang === 'en' ? 'English' : '日本語' }}
+      {{'TOGGLE_BTN' | translate}}
   </button>
 </div>
 
@@ -9,7 +9,7 @@
   <div class="grid grid-cols-4 border-2 border-solid border-red-800" *ngIf="!selectedControl">
     <!-- Framework Selector -->
     <div class="text-center border-2 border-solid">
-      <label for="frameworkSelector">Framework</label><br />
+      <label for="frameworkSelector">{{'FRAMEWORK' | translate}}</label><br />
       <select
         id="frameworkSelector"
         [(ngModel)]="selectedFramework"
@@ -21,7 +21,7 @@
 
     <!-- Component Selector -->
     <div class="text-center border-2 border-solid">
-      <label for="componentSelector">Components</label><br />
+      <label for="componentSelector">{{'COMPONENT' | translate}}</label><br />
       <select
         id="componentSelector"
         [(ngModel)]="selectedComponent"
@@ -33,7 +33,7 @@
 
     <!-- Control Selector -->
     <div class="text-center border-2 border-solid">
-      <label for="controlSelector">Controls</label><br />
+      <label for="controlSelector">{{'CONTROL' | translate}}</label><br />
       <select
         id="controlSelector"
         [(ngModel)]="selectedControl"
@@ -45,7 +45,7 @@
 
     <!-- Sample Selector -->
     <div class="text-center">
-      <label for="sampleSelector">Sample</label><br />
+      <label for="sampleSelector">{{'SAMPLE' | translate}}</label><br />
       <select id="sampleSelector">
         <option *ngFor="let sample of samples" [value]="sample">{{ sample }}</option>
       </select>
@@ -55,7 +55,7 @@
   <!-- Optional: Display current selections -->
   <div class="text-center" style="margin-top: 1rem">
     <p>
-      Selected:
+      {{'SELECTED' | translate}}:
       <strong>{{ selectedFramework }}</strong> → <strong>{{ selectedComponent }}</strong> →
       <strong>{{ selectedControl }}</strong> →
       <strong>{{ samples[0] || '-' }}</strong>

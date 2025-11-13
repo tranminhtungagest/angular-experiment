@@ -4,12 +4,13 @@ import { RouterOutlet, Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { LanguageService } from './locale/language.service';
+import { TranslateService, TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.html',
   styleUrls: ['./app.css'],
-  imports: [FormsModule, CommonModule, RouterOutlet],
+  imports: [FormsModule, CommonModule, RouterOutlet, TranslateModule],
   standalone: true,
 })
 export class App implements OnInit {
@@ -25,8 +26,14 @@ export class App implements OnInit {
   constructor(
     private controlData: ControlDataService,
     private router: Router,
-    public languageService: LanguageService
-  ) {}
+    public languageService: LanguageService,
+    private translate: TranslateService
+  ) {
+    // Initialize translation
+    this.translate.addLangs(['en', 'ja']);
+    this.translate.setDefaultLang('en');
+    this.translate.use(this.languageService.currentLang);
+  }
 
   ngOnInit() {
     this.frameworks = this.controlData.getFrameworks();
@@ -64,5 +71,6 @@ export class App implements OnInit {
 
   toggleLanguage() {
     this.languageService.toggleLanguage();
+     this.translate.use(this.languageService.currentLang);
   }
 }
