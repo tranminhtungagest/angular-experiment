@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ControlDataService } from './data/control-data.service';
-import { RouterOutlet } from '@angular/router';
-import { FormsModule } from '@angular/forms'; // ✅ import this
-import { CommonModule } from '@angular/common'; // ✅ import this
-import { Router } from '@angular/router';
+import { RouterOutlet, Router } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { LanguageService } from './locale/language.service';
 
 @Component({
   selector: 'app-root',
@@ -22,13 +22,15 @@ export class App implements OnInit {
   selectedComponent = '';
   selectedControl = '';
 
-  constructor(private controlData: ControlDataService, private router: Router) {}
+  constructor(
+    private controlData: ControlDataService,
+    private router: Router,
+    public languageService: LanguageService
+  ) {}
 
   ngOnInit() {
     this.frameworks = this.controlData.getFrameworks();
     this.components = this.controlData.getComponents();
-    // Preload first component’s controls
-    this.onComponentChange(this.components[0]);
   }
 
   onFrameworkChange(value: string) {
@@ -47,12 +49,20 @@ export class App implements OnInit {
     this.selectedControl = value;
     this.samples = [`${value}_Sample`];
 
+    // Determine prefix based on current language
+    const prefix = this.languageService.getLangPrefix();
+    // Build the path array correctly sans the preceding slash
     this.router.navigate([
-      '/scenario',
+      prefix,
+      'scenario',
       this.selectedFramework,
       this.selectedComponent,
       this.selectedControl,
       this.samples[0],
     ]);
+  }
+
+  toggleLanguage() {
+    this.languageService.toggleLanguage();
   }
 }

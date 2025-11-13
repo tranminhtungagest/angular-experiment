@@ -1,7 +1,16 @@
 import { Routes } from '@angular/router';
 import { ScenarioPage } from './components/scenario-page/scenario-page';
 import { App } from './app';
+
 export const routes: Routes = [
-  { path: '', redirectTo:"/home", pathMatch:"full" },
+  { path: 'home', component:App },
   { path: 'scenario/:framework/:component/:control/:sample', component: ScenarioPage },
+  // same as the default English path, but with the /ja prefix
+  {
+    path: 'ja',
+    children: [
+      { path: 'home', component: App },
+      { path: 'scenario/:framework/:component/:control/:sample', component: ScenarioPage },
+    ],
+  },
 ];
