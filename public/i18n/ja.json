@@ -1,0 +1,15 @@
+{
+  "FRAMEWORK": "フレームワーク",
+  "COMPONENT": "コンポーネント",
+  "CONTROL": "コントロール",
+  "SAMPLE": "サンプル",
+  "SELECTED": "選択済み",
+  "TOGGLE_BTN": "日本語",
+  "SCENARIO_PAGE":"シナリオページ",
+  "GO_TO_MAIN_PAGE": "メインページへ",
+  "PREVIEW":"プレビュー",
+  "PREVIEW_IS_UNAVAILABLE.":"プレビューは利用できません。",
+  "CLICK_ME":"クリックしてください！",
+  "YOU_HAVE_CLICKED_ME_SENPAI":"先輩、私をクリックして頂きました…",
+  "INPUT_BUTTON":"入力ボタン"
+}

@@ -1,19 +1,19 @@
 import { Component, OnInit } from '@angular/core';
-import { ControlDataService } from './data/control-data.service';
-import { RouterOutlet, Router } from '@angular/router';
-import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { LanguageService } from './locale/language.service';
-import { TranslateService, TranslateModule } from '@ngx-translate/core';
+import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { LanguageService } from '../../locale/language.service';
+import { ControlDataService } from '../../data/control-data.service';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.html',
-  styleUrls: ['./app.css'],
-  imports: [FormsModule, CommonModule, RouterOutlet, TranslateModule],
+  selector: 'app-home-page',
+  templateUrl: './home-page.html',
+  styleUrls: ['./home-page.css'],
   standalone: true,
+  imports: [CommonModule, FormsModule, TranslateModule],
 })
-export class App implements OnInit {
+export class HomePage implements OnInit {
   frameworks: string[] = [];
   components: string[] = [];
   controls: string[] = [];
@@ -28,12 +28,7 @@ export class App implements OnInit {
     private router: Router,
     public languageService: LanguageService,
     private translate: TranslateService
-  ) {
-    // Initialize translation
-    this.translate.addLangs(['en', 'ja']);
-    this.translate.setDefaultLang('en');
-    this.translate.use(this.languageService.currentLang);
-  }
+  ) {}
 
   ngOnInit() {
     this.frameworks = this.controlData.getFrameworks();
@@ -42,7 +37,6 @@ export class App implements OnInit {
 
   onFrameworkChange(value: string) {
     this.selectedFramework = value;
-    // (if frameworks ever have unique components, handle here)
   }
 
   onComponentChange(value: string) {
@@ -55,10 +49,7 @@ export class App implements OnInit {
   onControlChange(value: string) {
     this.selectedControl = value;
     this.samples = [`${value}_Sample`];
-
-    // Determine prefix based on current language
     const prefix = this.languageService.getLangPrefix();
-    // Build the path array correctly sans the preceding slash
     this.router.navigate([
       prefix,
       'scenario',
@@ -71,6 +62,6 @@ export class App implements OnInit {
 
   toggleLanguage() {
     this.languageService.toggleLanguage();
-     this.translate.use(this.languageService.currentLang);
+    this.translate.use(this.languageService.currentLang);
   }
 }
