@@ -1,66 +1,9 @@
 <!-- universal language toggle -->
 <div class="text-right m-2">
   <button (click)="toggleLanguage()">
-      {{'TOGGLE_BTN' | translate}}
+    {{ 'TOGGLE_BTN' | translate }}
   </button>
 </div>
 
-<ng-container *ngIf="!selectedControl">
-  <div class="grid grid-cols-4 border-2 border-solid border-red-800" *ngIf="!selectedControl">
-    <!-- Framework Selector -->
-    <div class="text-center border-2 border-solid">
-      <label for="frameworkSelector">{{'FRAMEWORK' | translate}}</label><br />
-      <select
-        id="frameworkSelector"
-        [(ngModel)]="selectedFramework"
-        (change)="onFrameworkChange($any($event.target).value)"
-      >
-        <option *ngFor="let fw of frameworks" [value]="fw">{{ fw }}</option>
-      </select>
-    </div>
-
-    <!-- Component Selector -->
-    <div class="text-center border-2 border-solid">
-      <label for="componentSelector">{{'COMPONENT' | translate}}</label><br />
-      <select
-        id="componentSelector"
-        [(ngModel)]="selectedComponent"
-        (change)="onComponentChange($any($event.target).value)"
-      >
-        <option *ngFor="let comp of components" [value]="comp">{{ comp }}</option>
-      </select>
-    </div>
-
-    <!-- Control Selector -->
-    <div class="text-center border-2 border-solid">
-      <label for="controlSelector">{{'CONTROL' | translate}}</label><br />
-      <select
-        id="controlSelector"
-        [(ngModel)]="selectedControl"
-        (change)="onControlChange($any($event.target).value)"
-      >
-        <option *ngFor="let ctrl of controls" [value]="ctrl">{{ ctrl }}</option>
-      </select>
-    </div>
-
-    <!-- Sample Selector -->
-    <div class="text-center">
-      <label for="sampleSelector">{{'SAMPLE' | translate}}</label><br />
-      <select id="sampleSelector">
-        <option *ngFor="let sample of samples" [value]="sample">{{ sample }}</option>
-      </select>
-    </div>
-  </div>
-
-  <!-- Optional: Display current selections -->
-  <div class="text-center" style="margin-top: 1rem">
-    <p>
-      {{'SELECTED' | translate}}:
-      <strong>{{ selectedFramework }}</strong> → <strong>{{ selectedComponent }}</strong> →
-      <strong>{{ selectedControl }}</strong> →
-      <strong>{{ samples[0] || '-' }}</strong>
-    </p>
-  </div>
-</ng-container>
 <!-- Where ScenarioPage renders -->
 <router-outlet></router-outlet>
